@@ -1,25 +1,28 @@
 package com.example.tlixty;
 
+
 import android.app.Notification;
-import android.content.Context ;
-import android.content.Intent;
-import android.service.notification.NotificationListenerService ;
-import android.service.notification.StatusBarNotification ;
-import android.util.Log ;
+import android.content.Context;
+import android.os.Build;
+import android.service.notification.NotificationListenerService;
+import android.service.notification.StatusBarNotification;
+import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import emoji4j.Emoji;
 import emoji4j.EmojiUtils;
 
 import static android.net.Uri.encode;
 
+@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class NotificationService extends NotificationListenerService {
     private String TAG = this .getClass().getSimpleName() ;
     Context context ;
     static MyListener myListener ;
-    RequestTlixty requestTlixty = new RequestTlixty("http://192.168.178.132:1518");
+    RequestTlixty requestTlixty = new RequestTlixty("http://192.168.1.249:1518");
 
     @Override
     public void onCreate () {
@@ -28,6 +31,7 @@ public class NotificationService extends NotificationListenerService {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onNotificationPosted (StatusBarNotification sbn) {
         //Log. i ( TAG , "********** onNotificationPosted" ) ;

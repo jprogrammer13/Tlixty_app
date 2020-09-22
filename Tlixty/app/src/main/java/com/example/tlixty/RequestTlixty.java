@@ -5,8 +5,6 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONObject;
 
-import java.util.prefs.BackingStoreException;
-
 import cz.msebera.android.httpclient.Header;
 
 public class RequestTlixty {
